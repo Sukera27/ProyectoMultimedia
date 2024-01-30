@@ -1,0 +1,45 @@
+package com.vedruna.proyectomutimedia;
+
+import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+public class NavigationActivity extends AppCompatActivity {
+
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.navigationmenu);
+        onNavigationItemSelectedListener();
+
+
+    }
+
+    protected void onNavigationItemSelectedListener(){
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setSelectedItemId(R.id.navigation_home);
+
+        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
+        NavController navController = navHostFragment.getNavController();
+
+
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+
+            if (item.getItemId() == R.id.navigation_home) {
+                navController.navigate(R.id.homeFragment);
+            } else if (item.getItemId() == R.id.navigation_create) {
+                navController.navigate(R.id.createFragment);
+            } else if (item.getItemId() == R.id.navigation_update) {
+                navController.navigate(R.id.updateFragment);
+            }else if (item.getItemId() == R.id.navigation_delete) {
+                navController.navigate(R.id.deleteFragment);
+            }else if (item.getItemId() == R.id.navigation_exit) {
+                navController.navigate(R.id.exitFragment);
+            }
+            return true;
+        });
+    }
+}
