@@ -55,14 +55,18 @@ public class DeleteFragment extends Fragment {
                 // Obtener el ID ingresado por el usuario
                 String idString = idEditText.getText().toString().trim();
 
-                if (!idString.isEmpty()) {
-                    int productId = Integer.parseInt(idString);
-                    delete(productId);
-                } else {
-                    // Manejar el caso en el que el ID esté vacío
-                    // Puedes mostrar un mensaje de error o realizar otras acciones
-                    Log.e("Error", "El ID no puede estar vacío");
+                // Verificar si el campo del ID está vacío
+                if (idString.isEmpty()) {
+                    // Mostrar un mensaje de error si el campo del ID está vacío
+                    mostrarToast("Debe ingresar un ID para eliminar el producto.");
+                    return; // Salir del método onClick
                 }
+
+                // Convertir el ID a entero
+                int productId = Integer.parseInt(idString);
+
+                // Llamar al método de borrado con el ID del producto
+                delete(productId);
             }
         });
     }

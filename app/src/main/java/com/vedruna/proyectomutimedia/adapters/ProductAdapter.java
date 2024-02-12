@@ -67,7 +67,13 @@ public class ProductAdapter extends BaseAdapter {
         viewHolder.nameText.setText(product.getName());
         viewHolder.priceLabel.setText("Precio: ");
         viewHolder.priceText.setText(String.valueOf(product.getPrice()));
-        Picasso.get().load(product.getImageUrl()).into(viewHolder.imageView);
+        // Verificar si la URL de la imagen no está vacía antes de cargarla con Picasso
+        if (!product.getImageUrl().isEmpty()) {
+            Picasso.get().load(product.getImageUrl()).into(viewHolder.imageView);
+        } else {
+            // Si la URL de la imagen está vacía, puedes cargar una imagen de placeholder o dejar el ImageView vacío
+            viewHolder.imageView.setImageDrawable(null);
+        }
 
         return convertView;
     }

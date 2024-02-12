@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".UpdateFragment">
+
     <ImageView
         android:id="@+id/backgroundImage"
         android:layout_width="match_parent"
@@ -31,25 +31,27 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
+    <!-- LinearLayout para centrar el contenido -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:gravity="center_vertical|center_horizontal"
         android:padding="16dp">
 
-
+        <!-- Text View para el ID -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
             android:text="ID:"
+            android:textSize="18sp"
+            android:layout_marginBottom="8dp"
             android:textColor="#0D3444"
             android:textColorHighlight="#0D3444"
             android:textColorHint="#0D3444"
-            android:textColorLink="#0D3444"
-            android:textSize="18sp" />
+            android:textColorLink="#0D3444" />
 
-        <!-- EditText para ingresar el Nombre -->
+        <!-- EditText para ingresar el ID -->
         <EditText
             android:id="@+id/editTextID"
             android:layout_width="match_parent"
@@ -65,13 +67,13 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
             android:text="Nombre:"
+            android:textSize="18sp"
+            android:layout_marginBottom="8dp"
             android:textColor="#0D3444"
             android:textColorHighlight="#0D3444"
             android:textColorHint="#0D3444"
-            android:textColorLink="#0D3444"
-            android:textSize="18sp" />
+            android:textColorLink="#0D3444" />
 
         <!-- EditText para ingresar el Nombre -->
         <EditText
@@ -89,14 +91,14 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="Precio:"
+            android:textSize="18sp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="8dp"
-            android:text="Precio:"
             android:textColor="#0D3444"
             android:textColorHighlight="#0D3444"
             android:textColorHint="#0D3444"
-            android:textColorLink="#0D3444"
-            android:textSize="18sp" />
+            android:textColorLink="#0D3444" />
 
         <!-- EditText para ingresar el Precio -->
         <EditText
@@ -114,14 +116,14 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="URL de la Imagen:"
+            android:textSize="18sp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="8dp"
-            android:text="URL de la Imagen:"
             android:textColor="#0D3444"
             android:textColorHighlight="#0D3444"
             android:textColorHint="#0D3444"
-            android:textColorLink="#0D3444"
-            android:textSize="18sp" />
+            android:textColorLink="#0D3444" />
 
         <!-- EditText para ingresar la URL de la Imagen -->
         <EditText
@@ -135,14 +137,16 @@
             android:textColorHint="#0D3444"
             android:textColorLink="#0D3444" />
 
+        <!-- Botón para actualizar el producto -->
         <Button
+            android:id="@+id/buttonActualizarProducto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Actualizar Producto"
             android:layout_gravity="center"
             android:layout_marginTop="16dp"
             android:backgroundTint="#0D3444"
-            android:id="@+id/buttonActualizarProducto"/>
+            android:textColor="#FFFFFF" />
     </LinearLayout>
 
 </FrameLayout>

@@ -71,9 +71,11 @@ public class CreateFragment extends Fragment {
                 String nombre = nameText.getText().toString();
                 String precioString = priceText.getText().toString();
                 String urlImagen = editTextUrlImagen.getText().toString();
-                if (precioString.isEmpty()) {
-
-                    return;
+                // Verificar si algún campo está vacío
+                if (nombre.isEmpty() || precioString.isEmpty() || urlImagen.isEmpty()) {
+                    // Mostrar un mensaje de error si algún campo está vacío
+                    mostrarToast("Todos los campos son obligatorios.");
+                    return; // Salir del método onClick
                 }
                 float precio = Float.parseFloat(precioString);
                 ProductDTO dto = new ProductDTO(nombre, precio, urlImagen);

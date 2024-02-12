@@ -70,6 +70,12 @@ public class UpdateFragment extends Fragment {
         String precio = priceText.getText().toString().trim();
         String imagen = editTextUrlImagen.getText().toString().trim();
 
+        // Verificar si algún campo está vacío
+        if (id.isEmpty() || nombre.isEmpty() || precio.isEmpty() || imagen.isEmpty()) {
+            mostrarToast("Debe completar todos los campos.");
+            return; // Salir del método si algún campo está vacío
+        }
+
         // Crear un objeto ProductDTO en lugar de Product
         ProductDTO productDTO = new ProductDTO(nombre, Float.parseFloat(precio), imagen);
 

@@ -46,13 +46,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:background="@android:color/transparent"
-            android:cursorVisible="false"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
             android:gravity="center"
             android:minHeight="48dp"
-            android:text="Pulse el botón para salir de la aplicación" />
+            android:hint="Pulse el botón para salir de la aplicación"
+            android:textColorHighlight="#0D3444"
+            android:textColorHint="#0D3444"
+            android:textColorLink="#0D3444"/>
 
         <!-- Agregar el botón para salir -->
         <Button
@@ -60,6 +59,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="#0D3444"
+            android:textColor="#FFFFFF"
             android:text="Salir de la Aplicación" />
     </LinearLayout>
 
