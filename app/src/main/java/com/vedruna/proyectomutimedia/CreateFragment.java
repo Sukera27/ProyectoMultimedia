@@ -22,7 +22,9 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-
+/**
+ * Fragmento para la creación de un nuevo producto.
+ */
 public class CreateFragment extends Fragment {
 
     EditText nameText;
@@ -34,6 +36,9 @@ public class CreateFragment extends Fragment {
 
     CRUDInterface crudInterface;
 
+    /**
+     * Constructor público vacío requerido por Fragment.
+     */
     public CreateFragment() {
         // Required empty public constructor
     }
@@ -48,6 +53,14 @@ public class CreateFragment extends Fragment {
 
 
     }
+    /**
+     * Método llamado para crear y devolver la vista asociada con el fragmento.
+     *
+     * @param inflater           El LayoutInflater que se utiliza para inflar la vista.
+     * @param container          El ViewGroup en el que se debe inflar la vista.
+     * @param savedInstanceState El estado anteriormente guardado del fragmento (si lo hay).
+     * @return La vista asociada con el fragmento.
+     */
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -87,7 +100,11 @@ public class CreateFragment extends Fragment {
     }
 
 
-
+    /**
+     * Método para agregar un producto.
+     *
+     * @param dto El DTO (Data Transfer Object) del producto a agregar.
+     */
     private void create(ProductDTO dto){
         Retrofit retrofit= new Retrofit.Builder().baseUrl("http://192.168.217.1:8080/").
                 addConverterFactory(GsonConverterFactory.create()).
@@ -116,6 +133,11 @@ public class CreateFragment extends Fragment {
         });
 
     }
+    /**
+     * Método para mostrar un mensaje en forma de Toast.
+     *
+     * @param mensaje El mensaje a mostrar.
+     */
     private void mostrarToast(String mensaje) {
         Toast.makeText(getActivity(), mensaje, Toast.LENGTH_SHORT).show();
     }

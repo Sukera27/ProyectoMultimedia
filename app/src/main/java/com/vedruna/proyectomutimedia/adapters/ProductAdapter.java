@@ -14,32 +14,64 @@ import com.vedruna.proyectomutimedia.R;
 import com.vedruna.proyectomutimedia.model.Product;
 
 import java.util.List;
-
+/**
+ * Adaptador personalizado para la lista de productos.
+ */
 public class ProductAdapter extends BaseAdapter {
 
     private List<Product> products;
     private Context context;
 
+    /**
+     * Constructor del adaptador.
+     *
+     * @param context  Contexto de la aplicación.
+     * @param products Lista de productos a mostrar.
+     */
     public ProductAdapter(Context context, List<Product> products) {
         this.context = context;
         this.products = products;
     }
-
+    /**
+     * Devuelve el número de elementos en la lista.
+     *
+     * @return El número de elementos en la lista.
+     */
     @Override
     public int getCount() {
         return products.size();
     }
 
+    /**
+     * Devuelve el elemento en la posición especificada.
+     *
+     * @param position La posición del elemento.
+     * @return El elemento en la posición especificada.
+     */
     @Override
     public Object getItem(int position) {
         return products.get(position);
     }
 
+    /**
+     * Devuelve el ID del elemento en la posición especificada.
+     *
+     * @param position La posición del elemento.
+     * @return El ID del elemento en la posición especificada.
+     */
     @Override
     public long getItemId(int position) {
         return products.get(position).getProductID();
     }
 
+    /**
+     * Devuelve una vista que muestra el elemento en la posición especificada.
+     *
+     * @param position    La posición del elemento.
+     * @param convertView La vista reciclada que se debe utilizar.
+     * @param parent      El grupo al que pertenece la vista.
+     * @return Una vista que muestra el elemento en la posición especificada.
+     */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder;
@@ -48,6 +80,8 @@ public class ProductAdapter extends BaseAdapter {
             convertView = LayoutInflater.from(context).inflate(R.layout.product_list, parent, false);
 
             viewHolder = new ViewHolder();
+            viewHolder.idLabel = convertView.findViewById(R.id.idLabel);
+            viewHolder.idText = convertView.findViewById(R.id.idText);
             viewHolder.nameLabel = convertView.findViewById(R.id.nameLabel);
             viewHolder.nameText = convertView.findViewById(R.id.nameText);
             viewHolder.priceLabel = convertView.findViewById(R.id.priceLabel);
@@ -63,7 +97,9 @@ public class ProductAdapter extends BaseAdapter {
         Product product = (Product) getItem(position);
 
         // Asignar los valores del producto a las vistas
-        viewHolder.nameLabel.setText("Nombre: ");
+        viewHolder.idLabel.setText("ID: ");
+        viewHolder.idText.setText(String.valueOf(product.getProductID()));
+        viewHolder.nameLabel.setText("Producto: ");
         viewHolder.nameText.setText(product.getName());
         viewHolder.priceLabel.setText("Precio: ");
         viewHolder.priceText.setText(String.valueOf(product.getPrice()));
@@ -77,8 +113,12 @@ public class ProductAdapter extends BaseAdapter {
 
         return convertView;
     }
-
+    /**
+     * Clase estática para contener las vistas de un elemento de la lista.
+     */
     static class ViewHolder {
+        TextView idLabel;
+        TextView idText;
         TextView nameLabel;
         TextView nameText;
         TextView priceLabel;

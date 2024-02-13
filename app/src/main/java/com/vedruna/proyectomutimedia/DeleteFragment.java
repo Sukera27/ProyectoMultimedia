@@ -16,13 +16,18 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-
+/**
+ * Fragment para eliminar un producto.
+ */
 public class DeleteFragment extends Fragment {
 
     CRUDInterface crudInterface;
     Button button;
     EditText idEditText;
 
+    /**
+     * Constructor público vacío requerido por Fragment.
+     */
     public DeleteFragment() {
         // Required empty public constructor
     }
@@ -31,6 +36,15 @@ public class DeleteFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
+
+    /**
+     * Método llamado para crear y devolver la vista asociada con el fragmento.
+     *
+     * @param inflater           El LayoutInflater que se utiliza para inflar la vista.
+     * @param container          El ViewGroup en el que se debe inflar la vista.
+     * @param savedInstanceState El estado anteriormente guardado del fragmento (si lo hay).
+     * @return La vista asociada con el fragmento.
+     */
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -45,7 +59,11 @@ public class DeleteFragment extends Fragment {
 
         return view;
     }
-
+    /**
+     * Método para configurar el botón de borrado.
+     *
+     * @param view La vista del fragmento.
+     */
     private void setupDeleteButton(View view) {
         button = view.findViewById(R.id.buttonBorrarProducto);
 
@@ -70,7 +88,11 @@ public class DeleteFragment extends Fragment {
             }
         });
     }
-
+    /**
+     * Método para eliminar un producto.
+     *
+     * @param id El ID del producto a eliminar.
+     */
     private void delete(int id) {
         // Construir la instancia de Retrofit
         Retrofit retrofit = new Retrofit.Builder()
@@ -101,6 +123,11 @@ public class DeleteFragment extends Fragment {
             }
         });
     }
+    /**
+     * Método para mostrar un mensaje en forma de Toast.
+     *
+     * @param mensaje El mensaje a mostrar.
+     */
     private void mostrarToast(String mensaje) {
         Toast.makeText(getActivity(), mensaje, Toast.LENGTH_SHORT).show();
     }

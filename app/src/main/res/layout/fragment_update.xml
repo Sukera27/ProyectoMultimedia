@@ -31,6 +31,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
+    <!-- Imagen encima del contenido -->
+
     <!-- LinearLayout para centrar el contenido -->
     <LinearLayout
         android:layout_width="match_parent"
@@ -49,7 +51,8 @@
             android:textColor="#0D3444"
             android:textColorHighlight="#0D3444"
             android:textColorHint="#0D3444"
-            android:textColorLink="#0D3444" />
+            android:textColorLink="#0D3444"
+            android:textStyle="bold"/>
 
         <!-- EditText para ingresar el ID -->
         <EditText
@@ -61,7 +64,8 @@
             android:minHeight="48dp"
             android:textColorHighlight="#0D3444"
             android:textColorHint="#0D3444"
-            android:textColorLink="#0D3444" />
+            android:textColorLink="#0D3444"
+            android:textStyle="bold"/>
 
         <!-- Text View para el Nombre -->
         <TextView
@@ -73,7 +77,8 @@
             android:textColor="#0D3444"
             android:textColorHighlight="#0D3444"
             android:textColorHint="#0D3444"
-            android:textColorLink="#0D3444" />
+            android:textColorLink="#0D3444"
+            android:textStyle="bold"/>
 
         <!-- EditText para ingresar el Nombre -->
         <EditText
@@ -85,7 +90,8 @@
             android:minHeight="48dp"
             android:textColorHighlight="#0D3444"
             android:textColorHint="#0D3444"
-            android:textColorLink="#0D3444" />
+            android:textColorLink="#0D3444"
+            android:textStyle="bold"/>
 
         <!-- Text View para el Precio -->
         <TextView
@@ -98,7 +104,8 @@
             android:textColor="#0D3444"
             android:textColorHighlight="#0D3444"
             android:textColorHint="#0D3444"
-            android:textColorLink="#0D3444" />
+            android:textColorLink="#0D3444"
+            android:textStyle="bold"/>
 
         <!-- EditText para ingresar el Precio -->
         <EditText
@@ -110,7 +117,8 @@
             android:minHeight="48dp"
             android:textColorHighlight="#0D3444"
             android:textColorHint="#0D3444"
-            android:textColorLink="#0D3444" />
+            android:textColorLink="#0D3444"
+            android:textStyle="bold"/>
 
         <!-- Text View para la URL de la Imagen -->
         <TextView
@@ -123,7 +131,8 @@
             android:textColor="#0D3444"
             android:textColorHighlight="#0D3444"
             android:textColorHint="#0D3444"
-            android:textColorLink="#0D3444" />
+            android:textColorLink="#0D3444"
+            android:textStyle="bold" />
 
         <!-- EditText para ingresar la URL de la Imagen -->
         <EditText
@@ -135,7 +144,8 @@
             android:minHeight="48dp"
             android:textColorHighlight="#0D3444"
             android:textColorHint="#0D3444"
-            android:textColorLink="#0D3444" />
+            android:textColorLink="#0D3444"
+            android:textStyle="bold"/>
 
         <!-- Botón para actualizar el producto -->
         <Button
@@ -147,6 +157,14 @@
             android:layout_marginTop="16dp"
             android:backgroundTint="#0D3444"
             android:textColor="#FFFFFF" />
+
+        <ImageView
+            android:id="@+id/topImage"
+            android:layout_width="161dp"
+            android:layout_height="154dp"
+            android:layout_marginTop="16dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/logo" />
     </LinearLayout>
 
 </FrameLayout>

@@ -51,7 +51,8 @@
             android:hint="Pulse el botón para salir de la aplicación"
             android:textColorHighlight="#0D3444"
             android:textColorHint="#0D3444"
-            android:textColorLink="#0D3444"/>
+            android:textColorLink="#0D3444"
+            android:textStyle="bold"/>
 
         <!-- Agregar el botón para salir -->
         <Button
@@ -61,6 +62,13 @@
             android:backgroundTint="#0D3444"
             android:textColor="#FFFFFF"
             android:text="Salir de la Aplicación" />
+
+        <ImageView
+            android:id="@+id/logoImage"
+            android:layout_width="161dp"
+            android:layout_height="154dp"
+            android:layout_gravity="center"
+            android:src="@drawable/logo" />
     </LinearLayout>
 
 </FrameLayout>

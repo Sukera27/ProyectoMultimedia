@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -24,7 +25,9 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
-
+/**
+ * Activity para iniciar sesión en la aplicación.
+ */
 public class LoginActivity extends AppCompatActivity {
 
     private TextView usuario;
@@ -41,7 +44,11 @@ public class LoginActivity extends AppCompatActivity {
 
     SignInButton signInButton;
 
-
+    /**
+     * Método llamado cuando se crea la actividad.
+     *
+     * @param savedInstanceState Instancia guardada del estado de la actividad.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,9 +71,18 @@ public class LoginActivity extends AppCompatActivity {
                 signIn();
             }
         });
-
+        // Verificar si el usuario ya está autenticado
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser != null) {
+            // Si el usuario ya está autenticado, ir directamente a la pantalla de inicio
+            goHome();
+        }
 
     }
+    /**
+     * Método llamado cuando la actividad comienza a interactuar con el usuario.
+     * Comprueba si el usuario ha iniciado sesión (no nulo) y actualiza la interfaz de usuario en consecuencia.
+     */
     @Override
     public void onStart() {
         super.onStart();
@@ -74,6 +90,9 @@ public class LoginActivity extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         updateUI(currentUser);
     }
+    /**
+     * Método para iniciar sesión con Google.
+     */
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
@@ -96,6 +115,11 @@ public class LoginActivity extends AppCompatActivity {
             }
         }
     }
+    /**
+     * Método para autenticar con Firebase usando el token de ID de Google.
+     *
+     * @param idToken Token de ID de Google para autenticación.
+     */
     private void firebaseAuthWithGoogle(String idToken) {
         AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
         mAuth.signInWithCredential(credential)
@@ -113,18 +137,41 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 });
     }
+    /**
+     * Método para actualizar la interfaz de usuario después de la autenticación.
+     *
+     * @param user Usuario actual autenticado.
+     */
     private void updateUI(FirebaseUser user) {
-        user= mAuth.getCurrentUser();
-        if(user!=null){
+        user = mAuth.getCurrentUser();
+        if (user != null) {
+            // Si el usuario está autenticado, ir a la pantalla de inicio de la aplicación
             goHome();
+            // Mostrar un mensaje de inicio de sesión correcto
+            showToast("Inicio de sesión exitoso");
         }
     }
-
+    /**
+     * Método para mostrar toast al usuario después de la autenticación.
+     *
+     * @param message Usuario actual autenticado.
+     */
+    // Método para mostrar un Toast
+    private void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+    /**
+     * Método para ir a la pantalla de inicio de la aplicación después de la autenticación.
+     */
     private void goHome() {
         Intent intent=new Intent(this, NavigationActivity.class);
         startActivity(intent);
     }
-
+    /**
+     * Método llamado cuando se hace clic en el botón de inicio de sesión normal.
+     *
+     * @param view Vista del botón que se hizo clic.
+     */
     public void login(View view){
         String user = usuario.getText().toString();
         String password = contraseña.getText().toString();

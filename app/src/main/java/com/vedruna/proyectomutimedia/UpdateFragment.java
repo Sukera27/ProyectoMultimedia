@@ -18,22 +18,34 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-
+/**
+ * Fragment para actualizar un producto.
+ */
 public class UpdateFragment extends Fragment {
 
     EditText nameText;
     EditText priceText;
     EditText editTextUrlImagen;
     Button button;
-    EditText idText;  // Nuevo EditText para el ID
+    EditText idText;
 
     private Retrofit retrofit;
     CRUDInterface crudInterface;
 
+    /**
+     * Constructor público de la clase UpdateFragment.
+     */
     public UpdateFragment() {
         // Required empty public constructor
     }
-
+    /**
+     * Método llamado para crear y devolver la vista asociada al fragmento.
+     *
+     * @param inflater           El LayoutInflater que se utiliza para inflar la vista.
+     * @param container          El ViewGroup en el que se debe insertar la vista inflada.
+     * @param savedInstanceState Un objeto Bundle que contiene el estado previamente guardado del fragmento.
+     * @return La vista inflada y configurada para el fragmento.
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -64,6 +76,9 @@ public class UpdateFragment extends Fragment {
         return rootView;
     }
 
+    /**
+     * Método para actualizar un producto.
+     */
     private void actualizar() {
         String id = idText.getText().toString().trim();
         String nombre = nameText.getText().toString().trim();
@@ -104,7 +119,10 @@ public class UpdateFragment extends Fragment {
             }
         });
     }
-    // Método para mostrar un Toast
+    /**
+     * Método para mostrar un Toast.
+     * @param mensaje El mensaje a mostrar.
+     */
     private void mostrarToast(String mensaje) {
         Toast.makeText(getActivity(), mensaje, Toast.LENGTH_SHORT).show();
     }

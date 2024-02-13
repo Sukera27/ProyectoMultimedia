@@ -7,9 +7,14 @@ import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
+/**
+ * Activity principal que gestiona la navegación entre fragmentos a través de un menú inferior.
+ */
 public class NavigationActivity extends AppCompatActivity {
-
+    /**
+     * Método llamado cuando se crea la Activity.
+     * Se encarga de establecer el diseño y configurar la navegación en el menú inferior.
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.navigationmenu);
@@ -17,6 +22,9 @@ public class NavigationActivity extends AppCompatActivity {
 
 
     }
+    /**
+     * Método para configurar la navegación en el menú inferior.
+     */
 
     protected void onNavigationItemSelectedListener(){
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
