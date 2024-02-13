@@ -149,6 +149,11 @@ public class LoginActivity extends AppCompatActivity {
             goHome();
             // Mostrar un mensaje de inicio de sesión correcto
             showToast("Inicio de sesión exitoso");
+        }else{
+            if(FirebaseAuth.getInstance().getCurrentUser()==null){
+                return;
+            }
+            showToast("Inicio de sesión fallido");
         }
     }
     /**
