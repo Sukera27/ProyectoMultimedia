@@ -181,11 +181,13 @@ public class LoginActivity extends AppCompatActivity {
         String user = usuario.getText().toString();
         String password = contraseña.getText().toString();
         if(user.equals("admin") && password.equals("admin")){
-
+            showToast("Inicio de sesión exitoso");
 
             Intent intent=new Intent(this, NavigationActivity.class);
             intent.putExtra("usuario",user);
             startActivity(intent);
+        }else {
+            showToast("Inicio de sesión fallido");
         }
 
 

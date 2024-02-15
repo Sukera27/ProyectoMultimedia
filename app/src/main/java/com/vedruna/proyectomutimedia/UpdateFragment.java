@@ -57,8 +57,9 @@ public class UpdateFragment extends Fragment {
         nameText = rootView.findViewById(R.id.editTextNombre);
         priceText = rootView.findViewById(R.id.editTextPrecio);
         editTextUrlImagen = rootView.findViewById(R.id.editTextUrlImagen);
-
-        retrofit = new Retrofit.Builder().baseUrl("http://192.168.217.1:8080/")
+        //https://apiecologist-009d53b9d6bb.herokuapp.com/
+        //http://192.168.217.1:8080/
+        retrofit = new Retrofit.Builder().baseUrl("https://apiecologist-009d53b9d6bb.herokuapp.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

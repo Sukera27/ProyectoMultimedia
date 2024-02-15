@@ -96,7 +96,7 @@ public class DeleteFragment extends Fragment {
     private void delete(int id) {
         // Construir la instancia de Retrofit
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.217.1:8080/")
+                .baseUrl("https://apiecologist-009d53b9d6bb.herokuapp.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

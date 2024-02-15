@@ -106,7 +106,7 @@ public class CreateFragment extends Fragment {
      * @param dto El DTO (Data Transfer Object) del producto a agregar.
      */
     private void create(ProductDTO dto){
-        Retrofit retrofit= new Retrofit.Builder().baseUrl("http://192.168.217.1:8080/").
+        Retrofit retrofit= new Retrofit.Builder().baseUrl("https://apiecologist-009d53b9d6bb.herokuapp.com/").
                 addConverterFactory(GsonConverterFactory.create()).
                 build();
 

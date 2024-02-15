@@ -59,7 +59,7 @@ public class HomeFragment extends Fragment {
      * Método para recuperar la lista de productos de la API.
      */
     private void gelAll(){
-        Retrofit retrofit=new Retrofit.Builder().baseUrl("http://192.168.217.1:8080/").
+        Retrofit retrofit=new Retrofit.Builder().baseUrl("https://apiecologist-009d53b9d6bb.herokuapp.com/").
                 addConverterFactory(GsonConverterFactory.create()).build();
         crudInterface=retrofit.create(CRUDInterface.class);
         Call<List<Product>> call=crudInterface.getAll();

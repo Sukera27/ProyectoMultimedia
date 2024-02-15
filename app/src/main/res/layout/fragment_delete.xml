@@ -46,6 +46,7 @@
             android:layout_gravity="center"
             android:hint="Ingrese el ID del producto"
             android:minHeight="48dp"
+            android:backgroundTint="#0D3444"
             android:textColor="#0D3444"
             android:textColorHighlight="#0D3444"
             android:textColorHint="#0D3444"
